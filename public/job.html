@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Description</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="stylesheets/style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+</head>
+<body ng-controller="mainctrl">
+  
+   <form action="/jobs/submit" method="post" class="form-group">
+    <label for ="Job Description">Job Title</label>
+    <input type ="text" name="name" placeholder="Job Title" class="form-control">
+
+
+
+
+       <button type="submit" class="btn btn-primary">create</button>
+
+    </form>
+   <div class="container">
+       <div class="row">
+           <div class="col-sm-6 col-md-4" ng-repeat="j in jobs">
+               <div class="thumbnail" >
+                   <div class="caption" >
+                       <a href="#" class="btn btn-danger pull-right" ng-click="deletejob(j._id)" ><i class="fa fa-trash-o"></i>&nbsp;Delete</a>
+                       <h3>{{j.name}}</h3>
+                       <p>{{j.email}}</p>
+                       <p>{{j.mobileno}}</p>
+                       <p>{{j.github}}</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js "></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js "></script>
+  <script src="script.js"></script>
+</body>
+</html>

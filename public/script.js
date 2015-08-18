@@ -8,9 +8,15 @@ app.controller('mainctrl',function($scope, $http){
 
   $scope.deletecandidate = function(Id) {
     alert('Are you sure ? ');
-    $http.delete('/candidate/' + Id).success(function(res) {
-           $scope.candidates = res;
-    });
+    if(confirm("Are you sure you want to delete this?")){
+      $http.delete('/candidate/' + Id).success(function(res) {
+        $scope.candidates = res;
+      });
+    }
+    else{
+      return false;
+    }
+
   };
 
   $http.get('/jobs').success(function(res){
@@ -19,10 +25,15 @@ app.controller('mainctrl',function($scope, $http){
   });
 
   $scope.deletejob = function(Id) {
-    alert('Are you sure ? ');
-    $http.delete('/job/' + Id).success(function(res) {
+    if(confirm("Are you sure you want to delete this?")){
+      $http.delete('/job/' + Id).success(function(res) {
         $scope.jobs = res;
-    });
+      });
+    }
+    else{
+      return false;
+    }
+
   };
 
   $scope.fetchid = function(id){
